@@ -187,8 +187,8 @@ fun collatzSteps(x: Int): Int {
  * Подумайте, как добиться более быстрой сходимости ряда при больших значениях x.
  * Использовать kotlin.math.sin и другие стандартные реализации функции синуса в этой задаче запрещается.
  */
-fun sin(x: Double, eps: Double): Double {
-    var x = x
+fun sin(x1: Double, eps: Double): Double {
+    var x = x1
     while (x > 2 * PI) x -= 2 * PI
     var iteration = 1.0
     var sin = 0.0
@@ -211,8 +211,8 @@ fun sin(x: Double, eps: Double): Double {
  * Подумайте, как добиться более быстрой сходимости ряда при больших значениях x.
  * Использовать kotlin.math.cos и другие стандартные реализации функции косинуса в этой задаче запрещается.
  */
-fun cos(x: Double, eps: Double): Double {
-    var x = x
+fun cos(x1: Double, eps: Double): Double {
+    var x = x1
     while (x > 2 * PI) x -= 2 * PI
     var iteration = 0.0
     var cos = 0.0
@@ -232,9 +232,9 @@ fun cos(x: Double, eps: Double): Double {
  *
  * Использовать операции со строками в этой задаче запрещается.
  */
-fun revert(n: Int): Int {
+fun revert(n1: Int): Int {
     var revert = 0
-    var n = n
+    var n = n1
     while (n != 0) {
         revert *= 10
         revert += n % 10
@@ -252,8 +252,8 @@ fun revert(n: Int): Int {
  *
  * Использовать операции со строками в этой задаче запрещается.
  */
-fun isPalindrome(n: Int): Boolean = when {
-    revert(n) == n -> true
+fun isPalindrome(n: Int): Boolean = when (n) {
+    revert(n) -> true
     else -> false
 }
 /**
@@ -264,9 +264,9 @@ fun isPalindrome(n: Int): Boolean = when {
  *
  * Использовать операции со строками в этой задаче запрещается.
  */
-fun hasDifferentDigits(n: Int): Boolean {
-    var n = n
-    var lastNumber = n % 10
+fun hasDifferentDigits(n1: Int): Boolean {
+    var n = n1
+    val lastNumber = n % 10
     n /= 10
     while (n != 0) {
         if ((n % 10) != lastNumber) return true
@@ -284,10 +284,10 @@ fun hasDifferentDigits(n: Int): Boolean {
  *
  * Использовать операции со строками в этой задаче запрещается.
  */
-fun squareSequenceDigit(n: Int): Int {
-    var n = n
+fun squareSequenceDigit(n1: Int): Int {
+    var n = n1
     var currentSquareOf = 0
-    var currentSquare = 0
+    var currentSquare: Int
     while (true) {
         currentSquareOf += 1
         currentSquare = revert((currentSquareOf * currentSquareOf * 10) + 1)
@@ -307,13 +307,13 @@ fun squareSequenceDigit(n: Int): Int {
  *
  * Использовать операции со строками в этой задаче запрещается.
  */
-fun fibSequenceDigit(n: Int): Int {
-    var n = n
+fun fibSequenceDigit(n1: Int): Int {
+    var n = n1
     if ((n == 1) || (n == 2)) return 1
     n -= 2
     var fib1 = 1
     var fib2 = 1
-    var currentFibNum = 2
+    var currentFibNum: Int
     while (true) {
         currentFibNum = fib1 + fib2
         fib1 = fib2

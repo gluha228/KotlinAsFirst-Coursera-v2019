@@ -206,10 +206,10 @@ fun accumulate(list: MutableList<Int>): MutableList<Int> {
  * Результат разложения вернуть в виде списка множителей, например 75 -> (3, 5, 5).
  * Множители в списке должны располагаться по возрастанию.
  */
-fun factorize(n: Int): List<Int> {
-    var n = n
-    var flag = 0
-    var multiplierList: MutableList<Int> = mutableListOf()
+fun factorize(n1: Int): List<Int> {
+    var n = n1
+    var flag: Int
+    val multiplierList: MutableList<Int> = mutableListOf()
     while (n != 1) {
         flag = 0
         for (i in 2..(n / 2)) {
@@ -235,8 +235,8 @@ fun factorize(n: Int): List<Int> {
  * Результат разложения вернуть в виде строки, например 75 -> 3*5*5
  * Множители в результирующей строке должны располагаться по возрастанию.
  */
-fun factorizeToString(n: Int): String {
-    var n = n
+fun factorizeToString(n1: Int): String {
+    var n = n1
     var flag: Boolean
     var multiplierStr = ""
     while (n != 1) {
@@ -281,7 +281,7 @@ fun convert(n: Int, base: Int): List<Int> {
  */
 fun convertToString(n: Int, base: Int): String {
     if (n == 0) return "0"
-    var list = convert(n, base).toMutableList()
+    val list = convert(n, base).toMutableList()
     var anotherCountSystem = ""
     val alphabet = "abcdefghijklmnopqrstuvwxyz"
     for (i in 0 until list.size) {
@@ -334,8 +334,8 @@ fun decimalFromString(str: String, base: Int): Int {
  * 90 = XC, 100 = C, 400 = CD, 500 = D, 900 = CM, 1000 = M.
  * Например: 23 = XXIII, 44 = XLIV, 100 = C
  */
-fun roman(n: Int): String {
-    var n = n
+fun roman(n1: Int): String {
+    var n = n1
     var str = ""
     for (i in 1..(n / 1000)) {
         str += "M"
@@ -386,9 +386,9 @@ fun roman(n: Int): String {
  * Например, 375 = "триста семьдесят пять",
  * 23964 = "двадцать три тысячи девятьсот шестьдесят четыре"
  */
-fun russianOverThousand(n: Int): String {
-    if (n == 0) return ""
-    var n = n
+fun russianOverThousand(n1: Int): String {
+    if (n1 == 0) return ""
+    val n = n1
     var str = ""
     when (n / 100) {
         1 -> str += "сто "
@@ -438,9 +438,9 @@ fun russianOverThousand(n: Int): String {
     return str
 }
 
-fun russianUnderThousand(n: Int): String {
-    if (n == 0) return ""
-    var n = n
+fun russianUnderThousand(n1: Int): String {
+    if (n1 == 0) return ""
+    var n = n1
     var str = ""
     when (n / 100) {
         1 -> str += "сто "
